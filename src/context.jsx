@@ -6,7 +6,7 @@ import {
   CLEAR_CART,
   REMOVE_ITEM,
   INCREASE_AMOUNT,
-  DECREASE,
+  DECREASE_AMOUNT,
   LOADING,
   DISPLAY,
 } from './actions';
@@ -33,9 +33,19 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: INCREASE_AMOUNT, payload: { id } });
   };
 
+  const decreaseAmount = (id) => {
+    dispatch({ type: DECREASE_AMOUNT, payload: { id } });
+  };
+
   return (
     <AppContext.Provider
-      value={{ ...state, clearCart, removeItem, increaseAmount }}
+      value={{
+        ...state,
+        clearCart,
+        removeItem,
+        increaseAmount,
+        decreaseAmount,
+      }}
     >
       {children}
     </AppContext.Provider>
