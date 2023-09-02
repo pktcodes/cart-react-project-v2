@@ -4,7 +4,7 @@ import {
   INCREASE_AMOUNT,
   DECREASE_AMOUNT,
   LOADING,
-  DISPLAY,
+  DISPLAY_CART_ITEMS,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -37,6 +37,16 @@ const reducer = (state, action) => {
     const newItem = { ...item, amount: item.amount - 1 };
     newCart.set(itemId, newItem);
     return { ...state, cart: newCart };
+  }
+  if (action.type === LOADING) {
+    return { ...state, loading: true };
+  }
+  if (action.type === DISPLAY_CART_ITEMS) {
+    const newCart = new Map(
+      action.payload.cartData.map((item) => [item.id, item])
+    );
+
+    return { ...state, loading: false, cart: newCart };
   }
 
   throw new Error(`No matching action type found: ${action.type}`);

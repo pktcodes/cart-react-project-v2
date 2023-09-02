@@ -8,7 +8,7 @@ import {
   INCREASE_AMOUNT,
   DECREASE_AMOUNT,
   LOADING,
-  DISPLAY,
+  DISPLAY_CART_ITEMS,
 } from './actions';
 
 const url = 'https://www.course-api.com/react-useReducer-cart-project';
@@ -16,8 +16,8 @@ const url = 'https://www.course-api.com/react-useReducer-cart-project';
 const AppContext = createContext();
 
 const initialState = {
-  loading: true,
-  cart: new Map(cartItems.map((item) => [item.id, item])),
+  loading: false,
+  cart: new Map(),
 };
 
 export const AppProvider = ({ children }) => {
@@ -42,9 +42,10 @@ export const AppProvider = ({ children }) => {
   };
 
   const fetchCartData = async () => {
+    dispatch({ type: LOADING });
     const response = await fetch(url);
     const cartData = await response.json();
-    console.log(cartData);
+    dispatch({ type: DISPLAY_CART_ITEMS, payload: { cartData } });
   };
 
   useEffect(() => {
