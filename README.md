@@ -1,71 +1,29 @@
-## Figma URL
+# Cart 🛒
 
-[Cart](https://www.figma.com/file/5AwKjnWuM6BhRYmxdQFpky/Cart?node-id=0%3A1&t=lfaO4zazTd7nqF1q-1)
+> PROD [Live] : https://react-usereducer-cart-v2-prod.netlify.app/
 
-## Steps
+#### Cart consists of a straightforward user interface where there is a
 
-#### Setup
+- List of some of the items added to the cart, **Navbar** with the title *useReducer* , **cart amount** i.e. total number of items added by default, and a **`CLEAR CART`** button to clear all items in the cart which on click shows `YOUR BAG is currently empty`.
+- Each cartItem has the `image` , `title` , `price` , `amount`, along with a few buttons i.e. **`remove`** to remove the item from the cart, 🔼 to increase , 🔽 to decrease the amount of that particular item and when the item amount gets less than 1, it is automatically removed from the cart.  
+- For every change in cartItem, the **total price** and **cart amount** gets adjusted.  
+- **`Loading`** spinner will be shown while fetching data, once the data is available cart will be shown. 
+- Data is handled by **`API`**, and styles are handled by **`index.css`**
+- To run the project locally, clone the repo, `npm install` to install the dependencies, and `npm run dev` to start up the development server on default port 5173.
 
-```sh
+#### Languages
+HTML, CSS, JavaScript, ECMAScript, React ~ ContextAPI - Hooks ~ useEffect, useReducer, useContext
 
-npm install
-```
+#### Packages
+[React Icons](https://www.npmjs.com/package/react-icons)
 
-```sh
-npm run dev
-```
+#### API
+https://www.course-api.com/react-useReducer-cart-project
 
-#### Explore
+#### Deployment / Hosting
+Netlify
 
-Explore the current application and analyze its functionality.
-
-#### Global Context and useReducer
-
-Set up global context and immediately create a general setup for useReducer. Create two files, one for reducer and one for actions.
-
-#### Cart State Value
-
-In the default state, set cart not as an array but as a new Map().
-More info below.
-
-#### Challenge
-
-- setup cart with new Map()
-- access and iterate in CartContainer
-
-#### Functionalities
-
-Implement these functionalities in the reducer and actions files, and make them available in the global context.
-
-Clear Cart - an action that clears the entire cart.
-Remove Item - an action that removes a specific item from the cart.
-Increase Amount - an action that increases the quantity of a specific item in the cart.
-Decrease Amount - an action that decreases the quantity of a specific item in the cart.
-
-#### Calculate Totals
-
-Calculate Totals - a function that calculates the total cost of items in the cart.
-
-#### Fetch Data
-
-```js
-const url = 'https://www.course-api.com/react-useReducer-cart-project';
-```
-
-Fetch Data - an action that fetches data from an API and stores it in the cart state.
-
-#### Test
-
-Test the functionality of the application and fix any issues that arise.
-
-The flow of the application should look something like this:
-
-- Explore the current application and analyze its functionality.
-- Set up global context and immediately create a general setup for useReducer. - - Create two files, one for reducer and one for actions.
-- In the default state, set cart not as an array but as a new Map().
-- Create the following functionalities: Clear Cart, Remove Item, Increase Amount, Decrease Amount, Fetch Data, and Calculate Totals.
-- Implement these functionalities in the reducer and actions files, and make them available in the global context.
-- Test the functionality of the application and fix any issues that arise
+---
 
 #### Data Structure Options
 
@@ -160,3 +118,6 @@ console.log(cartArray);
 //   [2, { id: 2, name: 'second', price: 20 }]
 // ]
 ```
+---
+
+_Note: I have developed this project ~ [15] as part of React 18 Tutorial and Projects Course (2023) taught by John Smilga._
